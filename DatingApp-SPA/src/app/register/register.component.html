@@ -13,4 +13,9 @@
     <button class="btn btn-success" type="submit">Register</button>
     <button class="btn btn-default" type="button"(click)="cancel()">Cancel</button>
   </div>
+  <div>
+    <p>CheckBox Test</p>
+    <input type="checkbox" (change)="toggleCheckBox()" /><label>Toggle Button</label> <br>
+    <button class="btn btn-success my-2 my-sm-0" [disabled]="checkStatus">CheckBox Status</button>
+  </div>
 </form>

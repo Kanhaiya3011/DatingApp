@@ -9,6 +9,7 @@ import { AuthService } from '../_services/auth.service';
 export class RegisterComponent implements OnInit {
   @Output() cancelRegister = new EventEmitter();
   model: any = {};
+  checkStatus = true;
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
@@ -24,5 +25,8 @@ export class RegisterComponent implements OnInit {
   cancel(){
     this.cancelRegister.emit(false);
     console.log('Cancelled');
+  }
+  toggleCheckBox(){
+    this.checkStatus = !this.checkStatus;
   }
 }
