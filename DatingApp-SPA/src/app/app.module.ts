@@ -1,3 +1,5 @@
+
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -14,6 +16,8 @@ import { AuthService } from './_services/auth.service';
 import { MemberDetailResolver } from './_resolver/member-detail.resolver';
 import { MemberListResolver } from './_resolver/member-list.resolver';
 import { ErrorInterceptorProvider } from './_services/error.interceptor';
+import { MemberEditResolver } from './_resolver/member-edit.resolver';
+import { PreventUnsavedChanges } from './_guards/prvent-unsaved-changes.guard';
 
 import { AppComponent } from './app.component';
 import { ValueComponent } from './value/value.component';
@@ -25,6 +29,8 @@ import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
 import { MemberCardComponent } from './members/member-card/member-card.component';
 import { MemberDetailComponent } from './members/member-detail/member-detail.component';
+import { MemberEditComponent } from './members/member-edit/member-edit.component';
+
 
 
 
@@ -42,7 +48,8 @@ export function tokenGetter(){
       ListsComponent,
       MessagesComponent,
       MemberCardComponent,
-      MemberDetailComponent
+      MemberDetailComponent,
+      MemberEditComponent
    ],
    imports: [
       BrowserModule,
@@ -65,7 +72,9 @@ export function tokenGetter(){
       AuthService,
       MemberDetailResolver,
       MemberListResolver,
+      MemberEditResolver,
       ErrorInterceptorProvider,
+      PreventUnsavedChanges
    ],
    bootstrap: [
       AppComponent
