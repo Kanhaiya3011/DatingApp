@@ -9,7 +9,7 @@ namespace DatingApp.API.Helpers
         {
             
             get { return pageSize; }
-            set { pageSize = (value > MaxPageSixe ? MaxPageSixe : value); }
+            set { pageSize = (value > MaxPageSixe) ? MaxPageSixe : value; }
         }
         
     }

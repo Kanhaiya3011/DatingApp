@@ -41,8 +41,6 @@ getUsers(page?, itemsPerPage?): Observable<PaginatedResult<User[]>> {
   headers.append('Access-Control-Allow-Headers', 'Content-Type');
   headers.append('Access-Control-Allow-Methods', 'GET');
   headers.append('Access-Control-Allow-Origin', '*');
-  // this.http.get(this.baseUrl + 'users', { observe: 'response', params})
-  //   .subscribe(resp => console.log(resp.headers));
 
   return this.http.get<User[]>(this.baseUrl + 'users', { observe: 'response', params})
     .pipe(
