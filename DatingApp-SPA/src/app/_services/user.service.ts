@@ -13,7 +13,7 @@ export class UserService {
 baseUrl = environment.apiUrl;
 constructor(private http: HttpClient) { }
 
-getUsers(page?, itemsPerPage?, userParams?): Observable<PaginatedResult<User[]>> {
+getUsers(page?, itemsPerPage?, userParams?, likesParam?): Observable<PaginatedResult<User[]>> {
   const paginatedResult: PaginatedResult<User[]> = new PaginatedResult<User[]>();
 
   let params = new HttpParams();
@@ -30,13 +30,13 @@ getUsers(page?, itemsPerPage?, userParams?): Observable<PaginatedResult<User[]>>
     params = params.append('orderBy', userParams.orderBy);
   }
 
-  // if (likesParam === 'Likers') {
-  //   params = params.append('Likers', 'true');
-  // }
+  if (likesParam === 'Likers') {
+    params = params.append('Likers', 'true');
+  }
 
-  // if (likesParam === 'Likees') {
-  //   params = params.append('Likees', 'true');
-  // }
+  if (likesParam === 'Likees') {
+    params = params.append('Likees', 'true');
+  }
   const headers = new Headers();
   headers.append('Access-Control-Allow-Headers', 'Content-Type');
   headers.append('Access-Control-Allow-Methods', 'GET');
@@ -77,7 +77,13 @@ setMainPhoto(userId: number, id: number){
         this.baseUrl + 'users/' + userId + '/photos/' + id + '/setMain',
       {});
   }
-  deletePhoto(userId: number, id: number){
+deletePhoto(userId: number, id: number){
     return this.http.delete(this.baseUrl + 'users/' + userId + '/photos/' + id);
+  }
+
+sendLike(id: number, recepientId: number){
+    return this.http.post(
+      this.baseUrl + 'users/' + id + '/like/' + recepientId, 
+    {});
   }
 }

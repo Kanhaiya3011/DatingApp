@@ -1,3 +1,4 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -16,6 +17,7 @@ import { appRoutes } from './routes';
 import { AuthService } from './_services/auth.service';
 import { MemberDetailResolver } from './_resolver/member-detail.resolver';
 import { MemberListResolver } from './_resolver/member-list.resolver';
+import { ListsResolver } from './_resolver/list.resolver';
 import { ErrorInterceptorProvider } from './_services/error.interceptor';
 import { MemberEditResolver } from './_resolver/member-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prvent-unsaved-changes.guard';
@@ -85,6 +87,7 @@ export function tokenGetter(){
       MemberDetailResolver,
       MemberListResolver,
       MemberEditResolver,
+      ListsResolver,
       ErrorInterceptorProvider,
       PreventUnsavedChanges
    ],

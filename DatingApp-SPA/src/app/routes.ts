@@ -13,6 +13,7 @@ import { ListsComponent } from './lists/lists.component';
 import { AuthGuard } from './_guards/auth.guard';
 import { PreventUnsavedChanges } from './_guards/prvent-unsaved-changes.guard';
 import { MemberEditComponent } from './members/member-edit/member-edit.component';
+import { ListsResolver } from './_resolver/list.resolver';
 
 
 
@@ -32,7 +33,7 @@ export const appRoutes: Routes = [
             // {path: 'member/edit', component: MemberEditComponent,
             //     resolve: {user: MemberEditResolver}, canDeactivate: [PreventUnsavedChanges]},
             {path: 'messages', component: MessagesComponent},
-            // {path: 'lists', component: ListsComponent, resolve: {users: ListsResolver}},
+            {path: 'lists', component: ListsComponent, resolve: {users: ListsResolver}},
             // {path: 'admin', component: AdminPanelComponent, data: {roles: ['Admin', 'Moderator']}},
         ]
     },
