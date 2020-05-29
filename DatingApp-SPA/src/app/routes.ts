@@ -1,4 +1,5 @@
 
+
 import { Routes } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
@@ -7,6 +8,7 @@ import { MemberDetailComponent } from './members/member-detail/member-detail.com
 import { MemberDetailResolver } from './_resolver/member-detail.resolver';
 import { MemberListResolver } from './_resolver/member-list.resolver';
 import { MemberEditResolver } from './_resolver/member-edit.resolver';
+import { MessagesResolver } from './_resolver/message.resolver';
 
 import { MessagesComponent } from './messages/messages.component';
 import { ListsComponent } from './lists/lists.component';
@@ -32,7 +34,7 @@ export const appRoutes: Routes = [
                 resolve: {user: MemberEditResolver}, canDeactivate: [PreventUnsavedChanges]},
             // {path: 'member/edit', component: MemberEditComponent,
             //     resolve: {user: MemberEditResolver}, canDeactivate: [PreventUnsavedChanges]},
-            {path: 'messages', component: MessagesComponent},
+            {path: 'messages', component: MessagesComponent, resolve: {messages: MessagesResolver}},
             {path: 'lists', component: ListsComponent, resolve: {users: ListsResolver}},
             // {path: 'admin', component: AdminPanelComponent, data: {roles: ['Admin', 'Moderator']}},
         ]

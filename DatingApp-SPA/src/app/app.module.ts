@@ -1,4 +1,3 @@
-
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -17,6 +16,7 @@ import { appRoutes } from './routes';
 import { AuthService } from './_services/auth.service';
 import { MemberDetailResolver } from './_resolver/member-detail.resolver';
 import { MemberListResolver } from './_resolver/member-list.resolver';
+import { MessagesResolver } from './_resolver/message.resolver';
 import { ListsResolver } from './_resolver/list.resolver';
 import { ErrorInterceptorProvider } from './_services/error.interceptor';
 import { MemberEditResolver } from './_resolver/member-edit.resolver';
@@ -36,6 +36,7 @@ import { MemberCardComponent } from './members/member-card/member-card.component
 import { MemberDetailComponent } from './members/member-detail/member-detail.component';
 import { MemberEditComponent } from './members/member-edit/member-edit.component';
 import { PhotoEditorComponent} from './members/photo-editor/photo-editor.component';
+import { MemberMessagesComponent } from './members/member-messages/member-messages.component';
 
 
 
@@ -57,7 +58,8 @@ export function tokenGetter(){
       MemberCardComponent,
       MemberDetailComponent,
       MemberEditComponent,
-      PhotoEditorComponent
+      PhotoEditorComponent,
+      MemberMessagesComponent
    ],
    imports: [
       BrowserModule,
@@ -87,6 +89,7 @@ export function tokenGetter(){
       MemberDetailResolver,
       MemberListResolver,
       MemberEditResolver,
+      MessagesResolver,
       ListsResolver,
       ErrorInterceptorProvider,
       PreventUnsavedChanges
