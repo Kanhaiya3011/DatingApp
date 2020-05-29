@@ -1,3 +1,4 @@
+import { AuthService } from 'src/app/_services/auth.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { User } from '../../_models/user';
 import { UserService } from '../../_services/user.service';
@@ -17,7 +18,7 @@ export class MemberDetailComponent implements OnInit {
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
 
-  constructor(private userService: UserService,
+  constructor(private userService: UserService, private authService: AuthService,
               private alertify: AlertifyService,
               private route: ActivatedRoute) { }
 
@@ -61,5 +62,12 @@ export class MemberDetailComponent implements OnInit {
   selectTab(tabId: number) {
     this.memberTabs.tabs[tabId].active = true;
   }
-
+  sendLike(recepientId: number){
+    this.userService.sendLike(this.authService.decodedToken.nameid, recepientId)
+        .subscribe(data => {
+          this.alertify.success('Successfully liked ' + this.user.knownAs);
+        }, error => {
+          this.alertify.error(error);
+        });
+  }
 }
