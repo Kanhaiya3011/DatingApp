@@ -62,8 +62,8 @@ export class MemberDetailComponent implements OnInit {
   selectTab(tabId: number) {
     this.memberTabs.tabs[tabId].active = true;
   }
-  sendLike(recepientId: number){
-    this.userService.sendLike(this.authService.decodedToken.nameid, recepientId)
+  sendLike(recipientId: number){
+    this.userService.sendLike(this.authService.decodedToken.nameid, recipientId)
         .subscribe(data => {
           this.alertify.success('Successfully liked ' + this.user.knownAs);
         }, error => {

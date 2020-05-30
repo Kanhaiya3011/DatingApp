@@ -63,7 +63,7 @@ namespace DatingApp.API.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("RecepientId");
+                    b.HasIndex("RecipientId");
 
                     b.HasIndex("SenderId");
 
@@ -184,7 +184,7 @@ namespace DatingApp.API.Migrations
                 {
                     b.HasOne("DatingApp.API.Models.User", "Recepient")
                         .WithMany("MessagesReceived")
-                        .HasForeignKey("RecepientId")
+                        .HasForeignKey("RecipientId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
