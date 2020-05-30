@@ -182,7 +182,7 @@ namespace DatingApp.API.Migrations
 
             modelBuilder.Entity("DatingApp.API.Models.Message", b =>
                 {
-                    b.HasOne("DatingApp.API.Models.User", "Recepient")
+                    b.HasOne("DatingApp.API.Models.User", "Recipient")
                         .WithMany("MessagesReceived")
                         .HasForeignKey("RecipientId")
                         .OnDelete(DeleteBehavior.Restrict)
